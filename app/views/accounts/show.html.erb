@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @account.name %>
+</p>
+
+<p>
+  <b>Account ID:</b>
+  <%= @account.account_id %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @account.username %>
+</p>
+
+<p>
+  <b>Application name:</b>
+  <%= @account.application_name %>
+</p>
+
+<p>
+  <b>Application ID:</b>
+  <%= @account.application_id %>
+</p>
+
+<p>
+  <b>Api key:</b>
+  <%= @account.api_key %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

@@ -1,0 +1,71 @@
+
+
+<%= form_for(@account, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :name %>
+  </div>
+  <div class="controls">
+    <%= f.text_field :name %>
+  </div>
+  </div>
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :account_id %>
+  </div>
+  <div class="controls">
+    <%= f.text_field :account_id %>
+  </div>
+  </div>
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :username %>
+  </div>
+  <div class="controls">
+    <%= f.text_field :username %>
+  </div>
+  </div>
+
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :application_name %>
+  </div>
+  <div class="controls">
+    <%= f.text_field :application_name %>
+  </div>
+  </div>
+
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :application_id %>
+  </div>
+  <div class="controls">
+    <%= f.text_field :application_id %>
+  </div>
+  </div>
+  <div class="control-group">
+  <div class="control-label">
+    <%= f.label :api_key %><br />
+  </div>
+  <div class="controls">
+    <%= f.text_field :api_key %>
+  </div>
+  </div>
+  <div class="control-group">
+  <div class="controls">
+    <%= f.submit %>
+  </div>
+  </div>
+<% end %>

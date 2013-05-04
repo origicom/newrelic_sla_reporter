@@ -1,0 +1,42 @@
+<center><h1>SLA Report</h1></center>
+
+<%= form_tag root_path, :class => "form form-horizontal" do %>
+  <div class="control-group">
+    <label for="account_id" class="control-label">Account</label>
+    <div class="controls">
+      <%= select_tag "account_id", options_for_select(Account.all.collect{ |u| [u.name, u.id] }) %>
+      <%= link_to "Add account", new_account_path %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label for="password" class="control-label">Password</label>
+    <div class="controls">
+      <%= text_field_tag :password %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= submit_tag "Submit" %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>App name</th><th>Start date</th><th>End date</th><th>End user avg response time (s)</th><th>App server avg response time (ms)</th><th>Availability %</th>
+</tr>
+</thead>
+<tbody>
+<% @results.each do |row| %>
+<tr>
+<td><%= row[:app] %></td>
+<td><%= row[:start_date] %></td>
+<td><%= row[:end_date] %></td>
+<td><%= row[:end_user_response_time] %></td>
+<td><%= row[:app_server_response_time] %></td>
+<td><%= row[:availability] %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
