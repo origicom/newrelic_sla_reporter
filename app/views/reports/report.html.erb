@@ -11,7 +11,7 @@
   <div class="control-group">
     <label for="password" class="control-label">Password</label>
     <div class="controls">
-      <%= text_field_tag :password %>
+      <%= password_field_tag :password %>
     </div>
   </div>
   <div class="control-group">
@@ -40,4 +40,4 @@
 <% end %>
 </tbody>
 </table>
-<%= link_to "Download CSV", "/?account_id=#{params[:account_id]}&password=#{params[:password]}&format=csv" %>
+<%= link_to "Download CSV", "/?account_id=#{params[:account_id]}&password=#{params[:password]}&format=csv" unless @results.empty? %>
