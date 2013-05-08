@@ -1,0 +1,20 @@
+require 'reporter'
+
+class ReportsController < ApplicationController
+
+  def report
+    if params[:account_id]
+      account = Account.find(params[:account_id])
+      @report = Reporter.new(account, params[:password])
+      @results = @report.build
+    else
+      @results = []
+    end
+  end
+
+  def export
+    row = @results.first
+    @csv = "App name,Start date,End date,End user avg response time (s),App server avg response time (ms),Availability %\n"
+    @csv << "#{row[:app]},#{row[:start_date]},#{row[:end_date]},#{row[:end_user_response_time]},#{row[:app_server_response_time]},#{row[:availability]}"
+  end
+end
